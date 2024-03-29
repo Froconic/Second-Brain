@@ -681,8 +681,9 @@ def pairCheck(chart):
 
 def pathOfPoints(chart):
   path = []
+  t = ''
   if chart[12][0] == chart[14][0]:
-    path.append("J,L")
+    path.append("J, L")
     
   if chart[12][0] == chart[14][0] & chart[11][0] == chart[12][0]:
     path.append("12")
@@ -703,7 +704,7 @@ def pathOfPoints(chart):
     path.append("5")
     
   if chart[13][0] == chart[14][0]:
-    path.append("J,R")
+    path.append("J, R")
     
   if chart[13][0] == chart[14][0] & chart[9][0] == chart[13][0]:
     path.append("10")
@@ -727,8 +728,14 @@ def pathOfPoints(chart):
     temp = f"Path of points: No Path"
     # print("No Path")
   else:
-    temp = f"Path of points: {path}"
-    # print(f"Path of points: {path}")
+    c = ''
+    for i in range(len(path)):
+      t = path[i]
+      c += ', ' + t
+    # t = path.pop()
+    # temp = f"Path of points: {t}"
+    temp = f"Path of points: {c})"
+    # print(f"Path of points: {c} ")
   return temp
 
 def projectionAndFortune(chart):
@@ -1423,8 +1430,8 @@ def pageBuilder(weekNumber):
   file = weekNumber
   file
   print(file)
-  folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Forecasts"
-  # folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Forecasts/Test"
+  # folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Forecasts"
+  folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Forecasts/Test"
   folder
   print(folder)
   path = os.path.join(folder,file)

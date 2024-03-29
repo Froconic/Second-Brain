@@ -174,6 +174,8 @@ def lastDayOfMonthCheck(check):
     return temp
   if check == 12:
     temp = 31
+  else:
+    temp = 31
     # print(temp)
     return temp
 
@@ -422,6 +424,21 @@ def dailyNote(day,month):
     
     f.write("# Mental focuses\n- \n\n")
     
+    f.write("# Check in\n\n")
+    f.write("## Suntime?\n\n")
+    f.write("### - [ ] Yes\n")
+    f.write("### Time:\n")
+    f.write("### - [ ] No\n\n")
+    
+    
+    f.write("## Sleep Quality\n")
+    f.write("### Time:\n")
+    f.write("### Broken?\n")
+    f.write("### - [ ] Yes\n")
+    f.write("### - [ ] No\n")
+    
+    f.write("## Meals\n-\n\n")
+    
     f.write("# Body\n")
     f.write("## Start\n- \n\n")
     f.write("## Middle\n- \n\n")
@@ -480,7 +497,7 @@ def createWeek(weekNumber,week,month):
   print("Weekly outline creation commencing")
   title = "W" + str(weekNumber) + ".md"
   # print(f"File name:{title}")
-  folder = folderPath
+  folder = testWeeklyFolderPath
   # print(f"Folder path for outline: {folder}")
   path = os.path.join(folder,title)
   print(path)

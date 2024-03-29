@@ -63,7 +63,7 @@ def createPlan():
   mf.pageBuilder(title)
   print("Monthly outline being created")
   fileInsert = title + ".md"
-  file = os.path.join(folderPath,fileInsert)
+  file = os.path.join(testPath,fileInsert)
   print(f"File full path: {file}")
   
   with open(file, "w+") as f:
