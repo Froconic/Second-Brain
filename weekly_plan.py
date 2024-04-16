@@ -58,12 +58,6 @@ def dailyNote(day,monthNumber):
       folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber-1)
     else:
       folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
-  if day < 7:
-    answer = input(f"Is this day ({day}) from next month? Y/N?")
-    if answer == "Y" or answer == "y":
-      folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber+1)
-    else:
-      folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
   # folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/Test/" + str(monthNumber)
   # Join path and create file
   folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
