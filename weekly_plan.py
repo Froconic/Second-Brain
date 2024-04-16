@@ -53,19 +53,20 @@ meals = "# Meals\n- \n\n"
 def dailyNote(day,monthNumber):
   title = str(day) + '.md'
   if day > 25:
-    answer = input("Is this day from last month? Y/N?")
-    if answer == "Y":
+    answer = input(f"Is this day ({day}) from last month? Y/N?")
+    if answer == "Y" or answer == "y":
       folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber-1)
     else:
       folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
   if day < 7:
-    answer = input("Is this day from next month? Y/N?")
-    if answer == "Y":
+    answer = input(f"Is this day ({day}) from next month? Y/N?")
+    if answer == "Y" or answer == "y":
       folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber+1)
     else:
       folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
   # folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/Test/" + str(monthNumber)
   # Join path and create file
+  folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
   path = os.path.join(folder,title)
   print(f"Day: {day}")
   with open(path, 'w+') as f:
@@ -297,9 +298,10 @@ def dailyNote(day,monthNumber):
     f.write("### Time:\n")
     f.write("### Broken?\n")
     f.write(" - [ ] Yes\n")
-    f.write(" - [ ] No\n")
+    f.write(" - [ ] No\n\n")
     
     f.write("## Meals\n-\n\n")
+    f.write("## Hydration\n-\n\n")
     
     f.write("# Body\n")
     f.write("## Start\n- \n\n")
