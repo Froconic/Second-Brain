@@ -18,18 +18,11 @@ forecast = f"[[Daily-Journal/" + str(year) + "/Monthly/Forecasts/" + title + "]]
 # energyMap = "[[Daily-Journal/" + str(year) + "/Energy maps/" + energyMapInsert + "]]\n\n"
 startWeek = input("Starting week number: ")
 startWeek = int(startWeek)
-month = [startWeek,startWeek+1,startWeek+2,startWeek+3]
-startDay = input("Sunday of the first full week: ")
-startDay = int(startDay)
-week1 = [startDay,startDay+1,startDay+2,startDay+3,startDay+4,startDay+5,startDay+6]
-week2 = [startDay+7,startDay+8,startDay+9,startDay+10,startDay+11,startDay+12,startDay+13]
-week3 = [startDay+14,startDay+15,startDay+16,startDay+17,startDay+18,startDay+19,startDay+20]
-week4 = [startDay+21,startDay+22,startDay+23,startDay+24,startDay+25,startDay+26,startDay+27]
 weeklySection = "### Weekly \n"
-firstWeek = "[[Daily-Journal/" + str(year) + "/Weekly/Outline/W" + str(month[0]) + "]]\n"
-secondWeek = "[[Daily-Journal/" + str(year) + "/Weekly/Outline/W" + str(month[1]) + "]]\n"
-thirdWeek = "[[Daily-Journal/" + str(year) + "/Weekly/Outline/W" + str(month[2]) + "]]\n"
-fourthWeek = "[[Daily-Journal/" + str(year) + "/Weekly/Outline/W" + str(month[3]) + "]]\n\n"
+firstWeek = "[[Daily-Journal/" + str(year) + "/Weekly/Outline/W" + str(startWeek) + "]]\n"
+secondWeek = "[[Daily-Journal/" + str(year) + "/Weekly/Outline/W" + str(startWeek+1) + "]]\n"
+thirdWeek = "[[Daily-Journal/" + str(year) + "/Weekly/Outline/W" + str(startWeek+2) + "]]\n"
+fourthWeek = "[[Daily-Journal/" + str(year) + "/Weekly/Outline/W" + str(startWeek+3) + "]]\n\n"
 # firstWeek = "[[Daily-Journal/" + str(year) + "/Weekly/Outline/Test/W" + str(month[0]) + "]]\n"
 # secondWeek = "[[Daily-Journal/" + str(year) + "/Weekly/Outline/Test/W" + str(month[1]) + "]]\n"
 # thirdWeek = "[[Daily-Journal/" + str(year) + "/Weekly/Outline/Test/W" + str(month[2]) + "]]\n"
@@ -63,7 +56,7 @@ def createPlan():
   mf.pageBuilder(title)
   print("Monthly outline being created")
   fileInsert = title + ".md"
-  file = os.path.join(testPath,fileInsert)
+  file = os.path.join(folderPath,fileInsert)
   print(f"File full path: {file}")
   
   with open(file, "w+") as f:
@@ -75,13 +68,73 @@ def createPlan():
     f.write(energyMap)
     f.write(weeklySection)
     f.write(firstWeek)
-    wp.createWeek(month[0], week1,int(title))
+    sunday = input("Sunday of the week: ")
+    monday = input("Monday of the week: ")
+    tuesday = input("Tuesday of the week: ")
+    wednesday = input("Wednesday of the week: ")
+    thursday = input("Thursday of the week: ")
+    friday = input("Friday of the week: ")
+    saturday = input("Saturday of the week: ")
+    sunday = int(sunday)
+    monday = int(monday)
+    tuesday = int(tuesday)
+    wednesday = int(wednesday)
+    thursday = int(thursday)
+    friday = int(friday)
+    saturday = int(saturday)
+    week = [sunday,monday,tuesday,wednesday,thursday,friday,saturday]
+    wp.createWeek(startWeek,week,int(title))
     f.write(secondWeek)
-    wp.createWeek(month[1],week2,int(title))
+    sunday = input("Sunday of the week: ")
+    monday = input("Monday of the week: ")
+    tuesday = input("Tuesday of the week: ")
+    wednesday = input("Wednesday of the week: ")
+    thursday = input("Thursday of the week: ")
+    friday = input("Friday of the week: ")
+    saturday = input("Saturday of the week: ")
+    sunday = int(sunday)
+    monday = int(monday)
+    tuesday = int(tuesday)
+    wednesday = int(wednesday)
+    thursday = int(thursday)
+    friday = int(friday)
+    saturday = int(saturday)
+    week = [sunday,monday,tuesday,wednesday,thursday,friday,saturday]
+    wp.createWeek(startWeek+1,week,int(title))
     f.write(thirdWeek)
-    wp.createWeek(month[2],week3,int(title))
+    sunday = input("Sunday of the week: ")
+    monday = input("Monday of the week: ")
+    tuesday = input("Tuesday of the week: ")
+    wednesday = input("Wednesday of the week: ")
+    thursday = input("Thursday of the week: ")
+    friday = input("Friday of the week: ")
+    saturday = input("Saturday of the week: ")
+    sunday = int(sunday)
+    monday = int(monday)
+    tuesday = int(tuesday)
+    wednesday = int(wednesday)
+    thursday = int(thursday)
+    friday = int(friday)
+    saturday = int(saturday)
+    week = [sunday,monday,tuesday,wednesday,thursday,friday,saturday]
+    wp.createWeek(startWeek+2,week,int(title))
     f.write(fourthWeek)
-    wp.createWeek(month[3],week4,int(title))
+    sunday = input("Sunday of the week: ")
+    monday = input("Monday of the week: ")
+    tuesday = input("Tuesday of the week: ")
+    wednesday = input("Wednesday of the week: ")
+    thursday = input("Thursday of the week: ")
+    friday = input("Friday of the week: ")
+    saturday = input("Saturday of the week: ")
+    sunday = int(sunday)
+    monday = int(monday)
+    tuesday = int(tuesday)
+    wednesday = int(wednesday)
+    thursday = int(thursday)
+    friday = int(friday)
+    saturday = int(saturday)
+    week = [sunday,monday,tuesday,wednesday,thursday,friday,saturday]
+    wp.createWeek(startWeek+3,week,int(title))
     f.write(focusesSection)
     f.write(monthlyGoalsSection)
     f.write(externalGoalsSection)

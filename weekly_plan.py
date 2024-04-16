@@ -11,17 +11,15 @@ year = date.year
 leapYear = year % 4
 yearString = str(year)
 months = [1,2,3,4,5,6,7,8,9,10,11,12]
-# monthString = str(month)
-firstDay = 1
-# weekNumber = input("Week number: ")
+week1 = []
+week2 = []
+week3 = []
+week4 = []
+weeks = []
 weekNumber = ""
-# weekStart = input("Sunday's date: ")
-# weekStart = int(weekStart)
-# energyMapInsert = input("energy map for this week: ")
 folderPath = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Outline"
 testWeeklyFolderPath = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Outline/Test"
 testFolderPath = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/Test"
-# print(folderPath)
 
 # Table of contents
 forecast = "[[Daily-Journal/" + str(year) + "/Weekly/Forecasts/" + weekNumber + "|Forecast]]\n"
@@ -30,10 +28,8 @@ movement = "[[#Movement]]\n\n"
 
 # Each day in the obsidian backlink format
 days = "### Days\n"
-# week = [weekStart,weekStart+1,weekStart+2,weekStart+3,weekStart+4,weekStart+5,weekStart+6]
 # Energy Map section (moon log)
 energyMapTitle = "### Energy Map\n"
-# energyMap = "- [[Daily-Journal/2024/Energy Maps/" + energyMapInsert + "|" + energyMapInsert + "]]\n\n"
 
 # Focus Section
 focuses = "### Focuses\n- \n\n"
@@ -54,158 +50,10 @@ dailyActions = "# Daily Actions\n- \n\n"
 moves = "# Movement\n- [ ] \n\n"
 meals = "# Meals\n- \n\n"
 
-# Check current month amongst year
-def monthCheck(check):
-  temp = 0
-  # print(temp)
-  if check == 1:
-    temp = months[0]
-    # print(temp)
-    return temp
-  if leapYear == 0 and check == 2:
-    temp = months[1]
-    # print(temp)
-    return temp
-  if check == 2:
-    temp = months[1]
-    # print(temp)
-    return temp
-  if check == 3:
-    temp = months[2]
-    # print(temp)
-    return temp
-  if check == 4:
-    temp = months[3]
-    # print(temp)
-    return temp
-  if check == 5:
-    temp = months[4]
-    # print(temp)
-    return temp
-  if check == 6:
-    temp = months[5]
-    # print(temp)
-    return temp
-  if check == 7:
-    temp = months[6]
-    # print(temp)
-    return temp
-  if check == 8:
-    temp = months[7]
-    # print(temp)
-    return temp
-  if check == 9:
-    temp = months[8]
-    # print(temp)
-    return temp
-  if check == 10:
-    temp = months[9]
-    # print(temp)
-    return temp
-  if check == 11:
-    temp = months[10]
-    # print(temp)
-    return temp
-  if check == 12:
-    temp = months[11]
-    # print(temp)
-    return temp
-
-def monthPlus(day,month):
-  if day == firstDay:
-    print("Next month detected")
-    month = month + 1
-    print(f"Next month: {month}")
-    return month
-  else:
-    return month
-
-# Match last day of the month to the current month
-def lastDayOfMonthCheck(check):
-  temp = 0
-  # print(temp)
-  if check == 1:
-    temp = 31
-    # print(temp)
-    return temp
-  if leapYear == 0 and check == 2:
-    temp = 29
-    # print(temp)
-    return temp
-  if check == 2:
-    temp = 28
-    # print(temp)
-    return temp
-  if check == 3:
-    temp = 31
-    # print(temp)
-    return temp
-  if check == 4:
-    temp = 30
-    # print(temp)
-    return temp
-  if check == 5:
-    temp = 31
-    # print(temp)
-    return temp
-  if check == 6:
-    temp = 30
-    # print(temp)
-    return temp
-  if check == 7:
-    temp = 31
-    # print(temp)
-    return temp
-  if check == 8:
-    temp = 31
-    # print(temp)
-    return temp
-  if check == 9:
-    temp = 30
-    # print(temp)
-    return temp
-  if check == 10:
-    temp = 31
-    # print(temp)
-    return temp
-  if check == 11:
-    temp = 30
-    # print(temp)
-    return temp
-  if check == 12:
-    temp = 31
-  else:
-    temp = 31
-    # print(temp)
-    return temp
-
-# lastDay = lastDayOfMonthCheck(month)
-# print(lastDay)
-
-# Check to see if the week crosses over to the next month and adjust list
-def EOM(week, lastDay):
-  limitExceeded = False
-  
-  for i in range(len(week)):
-    if week[i] > lastDay:
-      limitExceeded = True
-      print("end of the month detected")
-      # month = month + 1
-      week[i] = 1
-      
-    if limitExceeded:
-      for j in range(i + 1, len(week)):
-        week[j] = week[j-1] + 1
-        # print(week[j])
-  # print(week)
-  return week
-
-# EOM(week,lastDay)
-
-def dailyNote(day,month):
+def dailyNote(day,monthNumber):
   title = str(day) + '.md'
-  # folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/Test/" + str(month)
-  folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(month)
+  # folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/Test/" + str(monthNumber)
+  folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
   # Join path and create file
   path = os.path.join(folder,title)
   print(f"Day: {day}")
@@ -358,6 +206,7 @@ def dailyNote(day,month):
     f.write("    - [ ] Primal\n")
     f.write("    - [ ] Taichi\n")
     f.write("    - [ ] Qi Gong\n")
+    f.write("    - [ ] Shaolin\n")
     f.write("    - [ ] Capoeira\n")
     f.write("    - [ ] Staff\n")
     f.write("    - [ ] Mace\n")
@@ -388,9 +237,11 @@ def dailyNote(day,month):
     f.write("- [ ] Plan next session\n")
     f.write("- [ ] Admin\n")
     f.write("- [ ] Code\n")
+    f.write("- [ ] Thought Space\n")
     f.write("- [ ] Art\n")
-    f.write("- [ ] Magick\n")
+    f.write("- [ ] Music\n")
     f.write("- [ ] Side gig\n")
+    f.write("- [ ] Magick\n")
     f.write("- [ ] Study / Research\n")
     f.write("- [ ] Practice\n")
     f.write("- [ ] Creative Project\n")
@@ -425,17 +276,17 @@ def dailyNote(day,month):
     f.write("# Mental focuses\n- \n\n")
     
     f.write("# Check in\n\n")
-    f.write("## Suntime?\n\n")
-    f.write("### - [ ] Yes\n")
+    f.write("## Sun time?\n\n")
+    f.write(" - [ ] Yes\n")
     f.write("### Time:\n")
-    f.write("### - [ ] No\n\n")
+    f.write(" - [ ] No\n\n")
     
     
     f.write("## Sleep Quality\n")
     f.write("### Time:\n")
     f.write("### Broken?\n")
-    f.write("### - [ ] Yes\n")
-    f.write("### - [ ] No\n")
+    f.write(" - [ ] Yes\n")
+    f.write(" - [ ] No\n")
     
     f.write("## Meals\n-\n\n")
     
@@ -478,30 +329,19 @@ def dailyNote(day,month):
     f.write("[[#Syncs / Signs]]\n")
     
 
-def createWeek(weekNumber,week,month):
+def createWeek(weekNumber,week,monthNumber):
   # Create title and folder path
-  # print(month)
   wf.pageBuilder(str(weekNumber))
-  lastDay = lastDayOfMonthCheck(month)
-  # print(lastDay)
   
-  EOM(week,lastDay)
   print(f"{weekNumber} outline being created")
-  # print(weekNumber)
-  # weekStart = input("Sunday's date: ")
-  # weekStart = int(weekStart)
-  # week = [weekStart,weekStart+1,weekStart+2,weekStart+3,weekStart+4,weekStart+5,weekStart+6]
   energyMapInsert = input("energy map for this week: ")
   energyMap = "- [[Daily-Journal/2024/Energy Maps/" + energyMapInsert + "|" + energyMapInsert + "]]\n\n"
 
   print("Weekly outline creation commencing")
   title = "W" + str(weekNumber) + ".md"
-  # print(f"File name:{title}")
-  folder = testWeeklyFolderPath
-  # print(f"Folder path for outline: {folder}")
+  folder = folderPath
   path = os.path.join(folder,title)
   print(path)
-  # print(month)
   
   # Open file and insert layout
   with open(path, "w+") as f:
@@ -510,47 +350,26 @@ def createWeek(weekNumber,week,month):
     f.write(movement)
     f.write(days)
     print("Generating days of the week")
-    month = monthPlus(week[0], month)
-    # print(month)
-    # f.write(f"[[Daily-Journal/{yearString}/Dailies/Test/{month}/{week[0]}|{week[0]}]]\n")
-    f.write(f"[[Daily-Journal/{yearString}/Dailies/{month}/{week[0]}|{week[0]}]]\n")
-    dailyNote(week[0],month)
+    f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{week[0]}|{week[0]}]]\n")
+    dailyNote(week[0],monthNumber)
     print("Sunday generated")
-    month = monthPlus(week[1], month)
-    # print(month)
-    # f.write(f"[[Daily-Journal/{yearString}/Dailies/Test/{month}/{week[1]}|{week[1]}]]\n")
-    f.write(f"[[Daily-Journal/{yearString}/Dailies/{month}/{week[1]}|{week[1]}]]\n")
-    dailyNote(week[1],month)
+    f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{week[1]}|{week[1]}]]\n")
+    dailyNote(week[1],monthNumber)
     print("Monday generated")
-    month = monthPlus(week[2], month)
-    # print(month)
-    # f.write(f"[[Daily-Journal/{yearString}/Dailies/Test/{month}/{week[2]}|{week[2]}]]\n")
-    f.write(f"[[Daily-Journal/{yearString}/Dailies/{month}/{week[2]}|{week[2]}]]\n")
-    dailyNote(week[2],month)
+    f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{week[2]}|{week[2]}]]\n")
+    dailyNote(week[2],monthNumber)
     print("Tuesday generated")
-    month = monthPlus(week[3], month)
-    # print(month)
-    # f.write(f"[[Daily-Journal/{yearString}/Dailies/Test/{month}/{week[3]}|{week[3]}]]\n")
-    f.write(f"[[Daily-Journal/{yearString}/Dailies/{month}/{week[3]}|{week[3]}]]\n")
-    dailyNote(week[3],month)
+    f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{week[3]}|{week[3]}]]\n")
+    dailyNote(week[3],monthNumber)
     print("Wednesday generated")
-    month = monthPlus(week[4], month)
-    # print(month)
-    # f.write(f"[[Daily-Journal/{yearString}/Dailies/Test/{month}/{week[4]}|{week[4]}]]\n")
-    f.write(f"[[Daily-Journal/{yearString}/Dailies/{month}/{week[4]}|{week[4]}]]\n")
-    dailyNote(week[4],month)
+    f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{week[4]}|{week[4]}]]\n")
+    dailyNote(week[4],monthNumber)
     print("Thursday generated")
-    month = monthPlus(week[5], month)
-    # print(month)
-    # f.write(f"[[Daily-Journal/{yearString}/Dailies/Test/{month}/{week[5]}|{week[5]}]]\n")
-    f.write(f"[[Daily-Journal/{yearString}/Dailies/{month}/{week[5]}|{week[5]}]]\n")
-    dailyNote(week[5],month)
+    f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{week[5]}|{week[5]}]]\n")
+    dailyNote(week[5],monthNumber)
     print("Friday generated")
-    month = monthPlus(week[6], month)
-    # print(month)
-    # f.write(f"[[Daily-Journal/{yearString}/Dailies/Test/{month}/{week[6]}|{week[6]}]]\n\n")
-    f.write(f"[[Daily-Journal/{yearString}/Dailies/{month}/{week[6]}|{week[6]}]]\n\n")
-    dailyNote(week[6],month)
+    f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{week[6]}|{week[6]}]]\n\n")
+    dailyNote(week[6],monthNumber)
     print("Saturday generated")
     f.write(energyMapTitle)
     f.write(energyMap)

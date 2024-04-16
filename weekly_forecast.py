@@ -1430,8 +1430,8 @@ def pageBuilder(weekNumber):
   file = weekNumber
   file
   print(file)
-  # folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Forecasts"
-  folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Forecasts/Test"
+  folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Forecasts"
+  # folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Forecasts/Test"
   folder
   print(folder)
   path = os.path.join(folder,file)
