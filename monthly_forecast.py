@@ -78,7 +78,7 @@ ogham = {
     14: "[[S Straif]]",
     15: "[[R Ruis]]",
     16: "[[A Ailm]]",
-    17: "[[O Onn]]",
+    17: "[[O Ohn]]",
     18: "[[U Ur]]",
     19: "[[E Eadhadh]]",
     20: "[[I Iodhadh]]",
