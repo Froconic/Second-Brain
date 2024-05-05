@@ -64,7 +64,7 @@ runes = {
 ogham = {
     1: "[[B Beith]]",
     2: "[[L Luis]]",
-    3: "[[F Fern]]",
+    3: "[[F Fearn]]",
     4: "[[S Sail]]",
     5: "[[N Nion]]",
     6: "[[H Uath]]",
