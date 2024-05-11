@@ -262,6 +262,7 @@ def dailyNote(day,monthNumber):
     f.write("- [ ] Spray pits\n\n")
     
     f.write("### Evening\n")
+    f.write("- [ ] Check in\n")
     f.write("- [ ] Review day\n")
     f.write("- [ ] Plan next day\n")
     f.write("    - [ ] Deep work\n")
