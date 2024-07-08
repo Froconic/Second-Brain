@@ -26,7 +26,7 @@ zodiac = {
     4: "[[Book of Shadows/MOD/Astrology/Zodiac/Leo|Leo]]",
     5: "[[Book of Shadows/MOD/Astrology/Zodiac/Virgo|Virgo]]",
     6: "[[Book of Shadows/MOD/Astrology/Zodiac/Libra|Libra]]",
-    7: "[[Book of Shadows/MOD/Astrology/Zodiac/Book of Shadows/MOD/Astrology/Zodiac/Scorpio|Scorpio]]",
+    7: "[[Book of Shadows/MOD/Astrology/Zodiac/Scorpio|Scorpio]]",
     8: "[[Book of Shadows/MOD/Astrology/Zodiac/Sagittarius|Sagittarius]]",
     9: "[[Book of Shadows/MOD/Astrology/Zodiac/Capricorn|Capricorn]]",
     10: "[[Book of Shadows/MOD/Astrology/Zodiac/Aquarius|Aquarius]]",
@@ -65,7 +65,7 @@ ogham = {
     1: "[[B Beith]]",
     2: "[[L Luis]]",
     3: "[[F Fearn]]",
-    4: "[[S Sail]]",
+    4: "[[S Saille]]",
     5: "[[N Nion]]",
     6: "[[H Uath]]",
     7: "[[D Dair]]",
@@ -75,7 +75,7 @@ ogham = {
     11: "[[M Muin]]",
     12: "[[G Gort]]",
     13: "[[NG Ngeatal]]",
-    14: "[[S Straif]]",
+    14: "[[Z Straif]]",
     15: "[[R Ruis]]",
     16: "[[A Ailm]]",
     17: "[[O Ohn]]",
@@ -224,14 +224,14 @@ def pageBuilder(month):
     
     f.write(f"Force| {force}\n---\n\n\n")
     f.write(f"Face| {face}\n---\n\n\n")
-    f.write(f"Week 1| {firstWeek[0]}\n---\n\n- \n\n")
-    f.write(f"Underlying Force| {firstWeek[1]}\n---\n\n- \n\n")
-    f.write(f"Week 2| {secondWeek[0]}\n---\n\n- \n\n")
-    f.write(f"Underlying Force| {secondWeek[1]}\n---\n\n- \n\n")
-    f.write(f"Week 3| {thirdWeek[0]}\n---\n\n- \n\n")
-    f.write(f"Underlying Force| {thirdWeek[1]}\n---\n\n- \n\n")
-    f.write(f"Week 4| {fourthWeek[0]}\n---\n\n- \n\n")
-    f.write(f"Underlying Force| {fourthWeek[1]}\n---\n\n- \n\n")
+    f.write(f"Week 1| {firstWeek[0]}\n---\n- \n\n")
+    f.write(f"Underlying Force| {firstWeek[1]}\n---\n- \n\n")
+    f.write(f"Week 2| {secondWeek[0]}\n---\n- \n\n")
+    f.write(f"Underlying Force| {secondWeek[1]}\n---\n- \n\n")
+    f.write(f"Week 3| {thirdWeek[0]}\n---\n- \n\n")
+    f.write(f"Underlying Force| {thirdWeek[1]}\n---\n- \n\n")
+    f.write(f"Week 4| {fourthWeek[0]}\n---\n- \n\n")
+    f.write(f"Underlying Force| {fourthWeek[1]}\n---\n- \n\n")
     f.write(f"Key Points\n---\n\n")
 
 

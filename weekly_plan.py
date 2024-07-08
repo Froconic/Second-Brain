@@ -52,12 +52,6 @@ meals = "# Meals\n- \n\n"
 
 def dailyNote(day,monthNumber):
   title = str(day) + '.md'
-  if day > 25:
-    answer = input(f"Is this day ({day}) from last month? Y/N?")
-    if answer == "Y" or answer == "y":
-      folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber-1)
-    else:
-      folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
   # folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/Test/" + str(monthNumber)
   # Join path and create file
   folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
@@ -184,8 +178,10 @@ def dailyNote(day,monthNumber):
 
     f.write("# Interpretation\n")
     f.write("---\n")
-    f.write("Today aids in \n\n")
-    f.write("Today hinders in \n\n\n")
+    f.write("### Boons \n\n")
+    f.write("-  \n\n")
+    f.write("### Banes \n\n\n")
+    f.write("-  \n\n")
     
     f.write("# TODO\n")
     f.write("### Events\n- \n\n")
@@ -295,8 +291,8 @@ def dailyNote(day,monthNumber):
     f.write(" - [ ] Yes\n")
     f.write(" - [ ] No\n\n")
     
-    f.write("## Meals\n-\n\n")
-    f.write("## Hydration\n-\n\n")
+    f.write("## Meals\n- \n\n")
+    f.write("## Hydration\n- \n\n")
     
     f.write("# Body\n")
     f.write("## Start\n- \n\n")
@@ -309,20 +305,20 @@ def dailyNote(day,monthNumber):
     f.write("## End\n- \n\n")
     
     f.write("### Morning Levels\n")
-    f.write("##### Mental:\n\n")
-    f.write("##### Physical:\n\n")
-    f.write("##### Emotional:\n\n")
-    f.write("##### Social:\n\n")
-    f.write("##### Creative:\n\n")
-    f.write("##### Total:\n\n")
+    f.write("##### Mental: \n\n")
+    f.write("##### Physical: \n\n")
+    f.write("##### Emotional: \n\n")
+    f.write("##### Social: \n\n")
+    f.write("##### Creative: \n\n")
+    f.write("##### Total: \n\n")
 
     f.write("### Evening Levels\n")
-    f.write("##### Mental:\n\n")
-    f.write("##### Physical:\n\n")
-    f.write("##### Emotional:\n\n")
-    f.write("##### Social:\n\n")
-    f.write("##### Creative:\n\n")
-    f.write("##### Total:\n\n")
+    f.write("##### Mental: \n\n")
+    f.write("##### Physical: \n\n")
+    f.write("##### Emotional: \n\n")
+    f.write("##### Social: \n\n")
+    f.write("##### Creative: \n\n")
+    f.write("##### Total: \n\n")
     
     f.write("# Syncs / Signs\n- \n\n")
     f.write("# Reflections / Highlights\n")
@@ -336,11 +332,25 @@ def dailyNote(day,monthNumber):
     f.write("[[#TODO]]\n")
     f.write("[[#Syncs / Signs]]\n")
     
+def monthCheck(week,monthNumber,f):
+  for day in week:
+    if day > 25:
+      check = input(f"Is this day ({day}) from last month? Y/N ")
+      if check == "Y":
+        f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber-1}/{day}|{day}]]\n")
+        dailyNote(day,monthNumber-1)
+      else:
+        f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{day}|{day}]]\n")
+        dailyNote(day,monthNumber)
+    else:
+      f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{day}|{day}]]\n")
+      dailyNote(day,monthNumber)
+
 
 def createWeek(weekNumber,week,monthNumber):
   # Create title and folder path
   wf.pageBuilder(str(weekNumber))
-  
+
   print(f"{weekNumber} outline being created")
   energyMapInsert = input("energy map for this week: ")
   energyMap = "- [[Daily-Journal/2024/Energy Maps/" + energyMapInsert + "|" + energyMapInsert + "]]\n\n"
@@ -358,27 +368,7 @@ def createWeek(weekNumber,week,monthNumber):
     f.write(movement)
     f.write(days)
     print("Generating days of the week")
-    f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{week[0]}|{week[0]}]]\n")
-    dailyNote(week[0],monthNumber)
-    print("Sunday generated")
-    f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{week[1]}|{week[1]}]]\n")
-    dailyNote(week[1],monthNumber)
-    print("Monday generated")
-    f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{week[2]}|{week[2]}]]\n")
-    dailyNote(week[2],monthNumber)
-    print("Tuesday generated")
-    f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{week[3]}|{week[3]}]]\n")
-    dailyNote(week[3],monthNumber)
-    print("Wednesday generated")
-    f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{week[4]}|{week[4]}]]\n")
-    dailyNote(week[4],monthNumber)
-    print("Thursday generated")
-    f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{week[5]}|{week[5]}]]\n")
-    dailyNote(week[5],monthNumber)
-    print("Friday generated")
-    f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{week[6]}|{week[6]}]]\n\n")
-    dailyNote(week[6],monthNumber)
-    print("Saturday generated")
+    monthCheck(week,monthNumber,f)
     f.write(energyMapTitle)
     f.write(energyMap)
     f.write(focuses)
