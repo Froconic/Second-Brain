@@ -178,9 +178,9 @@ def dailyNote(day,monthNumber):
 
     f.write("# Interpretation\n")
     f.write("---\n")
-    f.write("### Boons \n\n")
+    f.write("### Boons\n")
     f.write("-  \n\n")
-    f.write("### Banes \n\n\n")
+    f.write("### Banes \n")
     f.write("-  \n\n")
     
     f.write("# TODO\n")
