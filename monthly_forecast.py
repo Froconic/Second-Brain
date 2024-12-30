@@ -203,7 +203,8 @@ def fourthFigure():
 
 def pageBuilder(month):
   file = month
-  folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Monthly/Forecasts"
+  folder = "/home/akira/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Monthly/Forecasts"
+  # folder = "/home/rivre/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Monthly/Forecasts"
   path = os.path.join(folder,file)
   path = path + '.md'
   file

@@ -17,9 +17,10 @@ week3 = []
 week4 = []
 weeks = []
 weekNumber = ""
-folderPath = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Outline"
-testWeeklyFolderPath = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Outline/Test"
-testFolderPath = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/Test"
+folderPath = "/home/akira/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Weekly/Outline"
+# folderPath = "/home/rivre/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Weekly/Outline"
+testWeeklyFolderPath = "/home/rivre/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Weekly/Outline/Test"
+testFolderPath = "/home/rivre/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Dailies/Test"
 
 # Table of contents
 forecast = "[[Daily-Journal/" + str(year) + "/Weekly/Forecasts/" + weekNumber + "|Forecast]]\n"
@@ -52,9 +53,10 @@ meals = "# Meals\n- \n\n"
 
 def dailyNote(day,monthNumber):
   title = str(day) + '.md'
-  # folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/Test/" + str(monthNumber)
+  # folder = "/home/rivre/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Dailies/Test/" + str(monthNumber)
   # Join path and create file
-  folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
+  folder = "/home/akira/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
+  # folder = "/home/rivre/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
   path = os.path.join(folder,title)
   print(f"Day: {day}")
   with open(path, 'w+') as f:

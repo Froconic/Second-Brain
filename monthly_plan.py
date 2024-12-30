@@ -6,8 +6,9 @@ import datetime, os
 date = datetime.date.today()
 year = date.year
 title = input("Month: ")
-folderPath = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Monthly/Outline/"
-testPath = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Monthly/Outline/Test/"
+# folderPath = "/home/rivre/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Monthly/Outline/"
+folderPath = "/home/akira/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Monthly/Outline/"
+testPath = "/home/rivre/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Monthly/Outline/Test/"
 
 # Table of Contents
 pn = input("Personal number for the month: ")
