@@ -5,7 +5,7 @@ import random, math, os, datetime
 # TODO Add houses data
 
 date = datetime.date.today()
-year = date.year
+# year = date.year
 puer = "[[Puer#Qualities|Puer]]"
 puella = "[[Puella#Qualities|Puella]]"
 fortunaMajor = "[[Fortuna Major#Qualities|Fortuna Major]]"
@@ -1424,21 +1424,20 @@ def chartBuilder():
   companyDemiSimple(chart)
   companyCompound(chart)
 
-def pageBuilder(weekNumber):
+def pageBuilder(weekNumber, pn,year):
   chart = lastWave()
   print("Weekly Forecast commence")
   file = weekNumber
   file
   print(file)
-  folder = "/home/akira/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Weekly/Forecasts"
-  # folder = "/home/rivre/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Weekly/Forecasts"
-  # folder = "/home/rivre/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Weekly/Forecasts/Test"
+  # folder = "/home/akira/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Forecasts"
+  folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Forecasts"
+  # folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Forecasts/Test"
   folder
   print(folder)
   path = os.path.join(folder,file)
   path = path + '.md'
   print(path)
-  pn = input("personal number for the week: ")
   
   with open( path, 'w+') as f:
     f.write('[[#Key points]]\n')

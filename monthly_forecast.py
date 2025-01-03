@@ -3,7 +3,8 @@ import random, os, datetime
 # TODO Fix the backlin tags for runes and ogham
 
 date = datetime.date.today()
-year = date.year
+# year = date.year
+# year = 2030
 
 planets = {
     1: "[[Book of Shadows/MOD/Astrology/Planets/Sun|Sun]]",
@@ -201,10 +202,10 @@ def fourthFigure():
   return figureOne, figureTwo
 
 
-def pageBuilder(month):
+def pageBuilder(month, year):
   file = month
-  folder = "/home/akira/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Monthly/Forecasts"
-  # folder = "/home/rivre/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Monthly/Forecasts"
+  folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Monthly/Forecasts"
+  # folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Monthly/Forecasts"
   path = os.path.join(folder,file)
   path = path + '.md'
   file

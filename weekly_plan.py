@@ -7,9 +7,9 @@ import datetime, os
 
 # Setting all global variables
 date = datetime.date.today()
-year = date.year
-leapYear = year % 4
-yearString = str(year)
+# year = date.year
+# leapYear = year % 4
+# yearString = str(year)
 months = [1,2,3,4,5,6,7,8,9,10,11,12]
 week1 = []
 week2 = []
@@ -17,46 +17,17 @@ week3 = []
 week4 = []
 weeks = []
 weekNumber = ""
-folderPath = "/home/akira/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Weekly/Outline"
-# folderPath = "/home/rivre/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Weekly/Outline"
-testWeeklyFolderPath = "/home/rivre/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Weekly/Outline/Test"
-testFolderPath = "/home/rivre/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Dailies/Test"
+# folderPath = "/home/akira/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Outline"
+# folderPath = "Daily-Journal/" + str(year) + "/Weekly/Outline"
+# testWeeklyFolderPath = "Daily-Journal/" + str(year) + "/Weekly/Outline/Test"
+# testFolderPath = "Daily-Journal/" + str(year) + "/Dailies/Test"
 
-# Table of contents
-forecast = "[[Daily-Journal/" + str(year) + "/Weekly/Forecasts/" + weekNumber + "|Forecast]]\n"
-tasks = "[[#Major Tasks]]\n"
-movement = "[[#Movement]]\n\n"
-
-# Each day in the obsidian backlink format
-days = "### Days\n"
-# Energy Map section (moon log)
-energyMapTitle = "### Energy Map\n"
-
-# Focus Section
-focuses = "### Focuses\n- \n\n"
-
-# Weekly events section
-events = "### Events\n"
-sun = "#### Sun\n- \n\n"
-mon = "#### Mon\n- \n\n"
-tues = "#### Tues\n- \n\n"
-wed = "#### Wed\n- \n\n"
-thurs = "#### Thurs\n- \n\n"
-fri = "#### Fri\n- \n\n"
-sat = "#### Sat\n- \n\n"
-
-# tasks section
-majorTasks = "# Major Tasks\n- [ ] \n\n"
-dailyActions = "# Daily Actions\n- \n\n"
-moves = "# Movement\n- [ ] \n\n"
-meals = "# Meals\n- \n\n"
-
-def dailyNote(day,monthNumber):
+def dailyNote(day,monthNumber, year):
   title = str(day) + '.md'
-  # folder = "/home/rivre/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Dailies/Test/" + str(monthNumber)
+  # folder = "Daily-Journal/" + str(year) + "/Dailies/Test/" + str(monthNumber)
   # Join path and create file
-  folder = "/home/akira/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
-  # folder = "/home/rivre/Documents/Synced-Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
+  # folder = "/home/akira/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
+  folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
   path = os.path.join(folder,title)
   print(f"Day: {day}")
   with open(path, 'w+') as f:
@@ -293,30 +264,72 @@ def dailyNote(day,monthNumber):
     f.write("[[#TODO]]\n")
     f.write("[[#Syncs / Signs]]\n")
     
-def monthCheck(week,monthNumber,f):
-  for day in week:
-    if day > 25:
-      check = input(f"Is this day ({day}) from last month? Y/N ")
-      if check == "Y":
-        f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber-1}/{day}|{day}]]\n")
-        dailyNote(day,monthNumber-1)
-      else:
-        f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{day}|{day}]]\n")
-        dailyNote(day,monthNumber)
-    else:
-      f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{day}|{day}]]\n")
-      dailyNote(day,monthNumber)
+# def monthCheck(week,monthNumber,f):
+#   for day in week:
+#     if day > 25:
+#       check = input(f"Is this day ({day}) from last month? Y/N ")
+#       if check == "Y":
+#         f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber-1}/{day}|{day}]]\n")
+#         dailyNote(day,monthNumber-1)
+#       else:
+#         f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{day}|{day}]]\n")
+#         dailyNote(day,monthNumber)
+#     else:
+#       f.write(f"[[Daily-Journal/{yearString}/Dailies/{monthNumber}/{day}|{day}]]\n")
+#       dailyNote(day,monthNumber)
 
 
-def createWeek(weekNumber,week,monthNumber):
+def createWeek(weekNumber,week,monthNumber,pn, year):
+  # Table of contents
+  tasks = "[[#Major Tasks]]\n"
+  movement = "[[#Movement]]\n\n"
+
+  # Each day in the obsidian backlink format
+  days = "### Days\n"
+  sunday = week[0]
+  monday = week[1]
+  tuesday = week[2]
+  wednesday = week[3]
+  thursday = week[4]
+  friday = week[5]
+  saturday = week[6]
+  check = ''
+
+
+  
+  # Energy Map section (moon log)
+  energyMapTitle = "### Energy Map\n"
+
+  # Focus Section
+  focuses = "### Focuses\n- \n\n"
+
+  # Weekly events section
+  events = "### Events\n"
+  sun = "#### Sun\n- \n\n"
+  mon = "#### Mon\n- \n\n"
+  tues = "#### Tues\n- \n\n"
+  wed = "#### Wed\n- \n\n"
+  thurs = "#### Thurs\n- \n\n"
+  fri = "#### Fri\n- \n\n"
+  sat = "#### Sat\n- \n\n"
+
+  # tasks section
+  majorTasks = "# Major Tasks\n- [ ] \n\n"
+  dailyActions = "# Daily Actions\n- \n\n"
+  moves = "# Movement\n- [ ] \n\n"
+  meals = "# Meals\n- \n\n"
+  spent = "# Spent this week\n"
+  table = "| Spent on | Amount | Total in Bank |\n| -------- | ------ | ------------- |\n|          |        |               |"
+
   # Create title and folder path
-  wf.pageBuilder(str(weekNumber))
+  wf.pageBuilder(str(weekNumber),pn,year)
 
-  print(f"{weekNumber} outline being created")
+  print(f"Week {weekNumber} outline being created")
   energyMapInsert = input("energy map for this week: ")
   energyMap = "- [[Daily-Journal/2024/Energy Maps/" + energyMapInsert + "|" + energyMapInsert + "]]\n\n"
 
   print("Weekly outline creation commencing")
+  folderPath = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Outline"
   title = "W" + str(weekNumber) + ".md"
   folder = folderPath
   path = os.path.join(folder,title)
@@ -328,8 +341,153 @@ def createWeek(weekNumber,week,monthNumber):
     f.write(tasks)
     f.write(movement)
     f.write(days)
-    print("Generating days of the week")
-    monthCheck(week,monthNumber,f)
+    
+    if monthNumber == 3 and sunday >= 23:
+      check = input(f"Is this day the {week[0]} from last month? Y/N")
+
+      if check == 'Y' or check == 'y':
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber-1) + "/" + str(sunday) + '|' + str(sunday) + ']]\n')
+      else:
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(sunday) + '|' + str(sunday) + ']]\n')
+    elif monthNumber == 3 and sunday <= 23:
+      f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(sunday) + '|' + str(sunday) + ']]\n')
+      
+    if monthNumber != 3 and sunday >= 26:
+      check = input(f"Is this day the {week[0]} from last month? Y/N")
+
+      if check == 'Y' or check == 'y':
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber-1) + "/" + str(sunday) + '|' + str(sunday) + ']]\n')
+      else:
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(sunday) + '|' + str(sunday) + ']]\n')
+    elif monthNumber != 3 and sunday <= 26:
+      f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(sunday) + '|' + str(sunday) + ']]\n')
+    
+    if monthNumber == 3 and monday >= 23:
+      check = input(f"Is this day the {week[1]} from last month? Y/N")
+
+      if check == 'Y' or check == 'y':
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber-1) + "/" + str(monday) + '|' + str(monday) + ']]\n')
+      else:
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(monday) + '|' + str(monday) + ']]\n')
+    elif monthNumber == 3 and monday <= 23:
+      f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(monday) + '|' + str(monday) + ']]\n')
+       
+    elif monthNumber != 3 and monday <= 26:
+      f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(monday) + '|' + str(monday) + ']]\n')
+      
+    if monthNumber != 3 and monday >= 26:
+      check = input(f"Is this day the {week[1]} from last month? Y/N")
+
+      if check == 'Y' or check == 'y':
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber-1) + "/" + str(monday) + '|' + str(monday) + ']]\n')
+      else:
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(monday) + '|' + str(monday) + ']]\n')
+
+    if monthNumber == 3 and tuesday >= 23:
+      check = input(f"Is this day the {week[2]} from last month? Y/N")
+
+      if check == 'Y' or check == 'y':
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber-1) + "/" + str(tuesday) + '|' + str(tuesday) + ']]\n')
+      else:
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(tuesday) + '|' + str(tuesday) + ']]\n')
+    elif monthNumber == 3 and tuesday <= 23:
+      f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(tuesday) + '|' + str(tuesday) + ']]\n')
+      
+    if monthNumber != 3 and tuesday >= 26:
+      check = input(f"Is this day the {week[2]} from last month? Y/N")
+
+      if check == 'Y' or check == 'y':
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber-1) + "/" + str(tuesday) + '|' + str(tuesday) + ']]\n')
+      else:
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(tuesday) + '|' + str(tuesday) + ']]\n')
+    elif monthNumber != 3 and tuesday <= 26:
+      f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(tuesday) + '|' + str(tuesday) + ']]\n')
+    
+    if monthNumber == 3 and wednesday >= 23:
+      check = input(f"Is this day the {week[3]} from last month? Y/N")
+
+      if check == 'Y' or check == 'y':
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber-1) + "/" + str(wednesday) + '|' + str(wednesday) + ']]\n')
+      else:
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(wednesday) + '|' + str(wednesday) + ']]\n')
+    elif monthNumber == 3 and wednesday <= 23:
+      f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(wednesday) + '|' + str(wednesday) + ']]\n')
+      
+    if monthNumber != 3 and wednesday >= 26:
+      check = input(f"Is this day the {week[3]} from last month? Y/N")
+
+      if check == 'Y' or check == 'y':
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber-1) + "/" + str(wednesday) + '|' + str(wednesday) + ']]\n')
+      else:
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(wednesday) + '|' + str(wednesday) + ']]\n')
+    elif monthNumber != 3 and wednesday <= 26:
+      f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(wednesday) + '|' + str(wednesday) + ']]\n')
+        
+    if monthNumber == 3 and thursday >= 23:
+      check = input(f"Is this day the {week[4]} from last month? Y/N")
+
+      if check == 'Y' or check == 'y':
+          f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber-1) + "/" + str(thursday) + '|' + str(thursday) + ']]\n')
+      else:
+          f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(thursday) + '|' + str(thursday) + ']]\n')
+    elif monthNumber == 3 and thursday <= 23:
+      f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(thursday) + '|' + str(thursday) + ']]\n')
+    
+    if monthNumber != 3 and thursday >= 26:
+      check = input(f"Is this day the {week[4]} from last month? Y/N")
+
+      if check == 'Y' or check == 'y':
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber-1) + "/" + str(thursday) + '|' + str(thursday) + ']]\n')
+      else:
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(thursday) + '|' + str(thursday) + ']]\n')
+    elif monthNumber != 3 and thursday <= 26:
+      f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(thursday) + '|' + str(thursday) + ']]\n')
+
+    if monthNumber == 3 and friday >= 23:
+      check = input(f"Is this day the {week[5]} from last month? Y/N")
+
+      if check == 'Y' or check == 'y':
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber-1) + "/" + str(friday) + '|' + str(friday) + ']]\n')
+      else:
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(friday) + '|' + str(friday) + ']]\n')
+    elif monthNumber == 3 and friday <= 23:
+      f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(friday) + '|' + str(friday) + ']]\n')
+        
+    if monthNumber != 3 and friday >= 26:
+      check = input(f"Is this day the {week[5]} from last month? Y/N")
+
+      if check == 'Y' or check == 'y':
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber-1) + "/" + str(friday) + '|' + str(friday) + ']]\n')
+      else:
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(friday) + '|' + str(friday) + ']]\n')
+    elif monthNumber != 3 and friday <= 26:
+      f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(friday) + '|' + str(friday) + ']]\n')
+
+    if monthNumber == 3 and saturday >= 23:
+      check = input(f"Is this day the {week[6]} from last month? Y/N")
+
+      if check == 'Y' or check == 'y':
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber-1) + "/" + str(saturday) + '|' + str(saturday) + ']]\n')
+      else:
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(saturday) + '|' + str(saturday) + ']]\n')
+    elif monthNumber == 3 and saturday <= 23:
+      f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(saturday) + '|' + str(saturday) + ']]\n')
+        
+    if monthNumber != 3 and saturday >= 26:
+      check = input(f"Is this day the {week[6]} from last month? Y/N")
+
+      if check == 'Y' or check == 'y':
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber-1) + "/" + str(saturday) + '|' + str(saturday) + ']]\n')
+      else:
+        f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(saturday) + '|' + str(saturday) + ']]\n')
+    elif monthNumber != 3 and saturday <= 26:
+      f.write(f"[[Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber) + "/" + str(saturday) + '|' + str(saturday) + ']]\n')
+
+
+
+    print("Grouping days of the week")
+    print("Grouping complete")
+    # monthCheck(week,monthNumber,f)
     f.write(energyMapTitle)
     f.write(energyMap)
     f.write(focuses)
@@ -345,6 +503,8 @@ def createWeek(weekNumber,week,monthNumber):
     f.write(dailyActions)
     f.write(moves)
     f.write(meals)
+    f.write(spent)
+    f.write(table)
     
 
 # create()
