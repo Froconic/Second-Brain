@@ -42,6 +42,7 @@ monthlyTasksSection = "### Monthly Tasks\n---\n"
 dailiesSection = "#### Dailies \n- [ ] \n\n"
 externalTasksSection = "#### Internal \n- [ ] \n\n"
 budgetSection = "| Item        | Expected | Actual | Paid |\n| ----------- | -------- | ------ | ---- |\n| Rent        | 833      |        |      |\n| Wifi        | 25       |        |      |\n| Electricity | 150      |        |      |\n| Youtube     | 25       |        |      |\n| Food        | 500      |        |      |\n| Weed        | 280      |        |      |\n\n"
+savingsSection = "| Account   | Amount |\n| --------- | ------ |\n| Spending  |        |\n| Bills     |        |\n| Big Bills |        |\n| Savings   |        |\n| Travel    |        |"
 futureSection = "### Future\n---\n- [ ] \n\n"
 
 reflectionSection = "### Reflection\n---\n"
@@ -281,6 +282,7 @@ def createWeeks(startWeek, month, year):
     f.write(dailiesSection)
     f.write(externalGoalsSection)
     f.write(budgetSection)
+    f.write(savingsSection)
     f.write(reflectionSection)
     f.write(futureSection)
     print(f'{month} plan complete')
