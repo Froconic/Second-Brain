@@ -2,7 +2,11 @@ import monthly_forecast as mf
 import random, os
 
 def yearlyForecast(year):
-  path = "/home/rivre/Documents/Synced Files/Daily-Journal/2030/Monthly/Forecasts" + year + "/Monthly/Forecasts"
+  # Linux path
+  # path = "/home/rivre/Documents/Synced Files/Daily-Journal/2030/Monthly/Forecasts" + year + "/Monthly/Forecasts"
+  # Windows path
+  path = "/Users/akira/Documents/Second-Brain/Daily-Journal/2030/Monthly/Forecasts" + year + "/Monthly/Forecasts"
+  
   january = mf.pageBuilder("1 January", year)
   february = mf.pageBuilder("2 February", year)
   march = mf.pageBuilder("3 March", year)

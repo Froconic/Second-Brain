@@ -152,7 +152,10 @@ def createWeeks(startWeek, month, year):
   # mf.pageBuilder(month)
   print("Monthly outline being created")
   fileInsert = str(monthNumber) + ' ' + month + ".md"
-  folderPath = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Monthly/Outline/"
+  # Linux path
+  # folderPath = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Monthly/Outline/"
+  # Windows path
+  folderPath = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + str(year) + "/Monthly/Outline/"
   file = os.path.join(folderPath,fileInsert)
   print(f"File full path: {file}")
   

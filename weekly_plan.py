@@ -27,7 +27,10 @@ def dailyNote(day,monthNumber, year):
   # folder = "Daily-Journal/" + str(year) + "/Dailies/Test/" + str(monthNumber)
   # Join path and create file
   # folder = "/home/akira/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
-  folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
+  # Linux path
+  # folder = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
+  # Windows path
+  folder = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + str(year) + "/Dailies/" + str(monthNumber)
   path = os.path.join(folder,title)
   print(f"Day: {day}")
   with open(path, 'w+') as f:
@@ -329,7 +332,10 @@ def createWeek(weekNumber,week,monthNumber,pn, year):
   energyMap = "- [[Daily-Journal/2024/Energy Maps/" + energyMapInsert + "|" + energyMapInsert + "]]\n\n"
 
   print("Weekly outline creation commencing")
-  folderPath = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Outline"
+  # Linux path
+  # folderPath = "/home/rivre/Documents/Synced Files/Daily-Journal/" + str(year) + "/Weekly/Outline"
+  # Windows path
+  folderPath = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + str(year) + "/Weekly/Outline"
   title = "W" + str(weekNumber) + ".md"
   folder = folderPath
   path = os.path.join(folder,title)

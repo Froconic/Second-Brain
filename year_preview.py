@@ -1427,7 +1427,10 @@ def chartBuilder():
 def pageBuilder(year):
   chart = lastWave()
   print("Yearly Preview Being Generated")
-  preview = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Yearly/Preview.md"
+  # Linux Path
+  # preview = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Yearly/Preview.md"
+  # Windows Path
+  preview = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + year + "/Yearly/Preview.md"
   pn = input("Personal Number for the Year: ")
   with open( preview, 'w+') as f:
     f.write('[[#Key points]]\n')

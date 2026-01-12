@@ -2,26 +2,44 @@ import yearly_forecast as yf
 import monthly_plan as mp
 import year_preview as yp
 import os, random
+# Todo add in error checks so that you dont have to start over each time
 
 year = input("Year: ")
 lastYear = str(int(year)-1)
+# january = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/1 January.md"
+# february = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/2 February.md"
+# march = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/3 March.md"
+# april = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/4 April.md"
+# may = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/5 May.md"
+# june = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/6 June.md"
+# july = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/7 July.md"
+# august = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/8 August.md"
+# september = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/9 September.md"
+# october = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/10 October.md"
+# november = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/11 November.md"
+# december = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/12 December.md"
+# outline = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Yearly/Outline.md"
+# focuses = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Yearly/Focuses.md"
+# preview = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Yearly/Preview.md"
+# gbuPath = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Yearly/" + lastYear + " Good Bad Ugly.md"
 
-january = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/1 January.md"
-february = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/2 February.md"
-march = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/3 March.md"
-april = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/4 April.md"
-may = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/5 May.md"
-june = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/6 June.md"
-july = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/7 July.md"
-august = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/8 August.md"
-september = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/9 September.md"
+
+january = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + year + "/Monthly/Outline/1 January.md"
+february = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + year + "/Monthly/Outline/2 February.md"
+march = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + year + "/Monthly/Outline/3 March.md"
+april = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + year + "/Monthly/Outline/4 April.md"
+may = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + year + "/Monthly/Outline/5 May.md"
+june = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + year + "/Monthly/Outline/6 June.md"
+july = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + year + "/Monthly/Outline/7 July.md"
+august = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + year + "/Monthly/Outline/8 August.md"
+september = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + year + "/Monthly/Outline/9 September.md"
 october = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/10 October.md"
-november = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/11 November.md"
-december = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Monthly/Outline/12 December.md"
-outline = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Yearly/Outline.md"
-focuses = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Yearly/Focuses.md"
-preview = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Yearly/Preview.md"
-gbuPath = "/home/rivre/Documents/Synced Files/Daily-Journal/" + year + "/Yearly/" + lastYear + " Good Bad Ugly.md"
+november = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + year + "/Monthly/Outline/11 November.md"
+december = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + year + "/Monthly/Outline/12 December.md"
+outline = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + year + "/Yearly/Outline.md"
+focuses = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + year + "/Yearly/Focuses.md"
+preview = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + year + "/Yearly/Preview.md"
+gbuPath = "/Users/akira/Documents/Second-Brain/Daily-Journal/" + year + "/Yearly/" + lastYear + " Good Bad Ugly.md"
 
 
 # yf.yearlyForecast(year)
